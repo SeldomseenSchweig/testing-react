@@ -30,9 +30,9 @@ it("works when you click on the right arrow", function() {
 });
 
 it("works when you click on the left arrow", function() {
-  const [cardIdx, setCardIdx] = useState(1);
-
-  const { queryByTestId, queryByAltText } = render(<Carousel cardData={[0,1,2]}/>);
+  const { queryByTestId, queryByAltText } = render(<Carousel/>);
+  const rightArrow = queryByTestId("right-arrow");
+  fireEvent.click(rightArrow);
 
   // expect the second image to show, but not the first
   expect(queryByAltText("Photo by Richard Pasquarella on Unsplash")).not.toBeInTheDocument();
